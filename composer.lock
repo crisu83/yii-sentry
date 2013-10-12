@@ -3,11 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "385e0017e3d4d966fb77a63117fa1cdf",
+    "hash": "9591a90e119a4e3433d5f23577121143",
     "packages": [
-
-    ],
-    "packages-dev": [
         {
             "name": "raven/raven",
             "version": "0.7.1",
@@ -59,7 +56,9 @@
                 "logging"
             ],
             "time": "2013-09-17 19:35:03"
-        },
+        }
+    ],
+    "packages-dev": [
         {
             "name": "yiisoft/yii",
             "version": "1.1.14",

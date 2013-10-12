@@ -11,8 +11,10 @@
             "homepage": "http://www.cniska.net/"
         }
     ],
+    "require": {
+        "raven/raven": "0.7.1"
+    },
     "require-dev": {
-        "raven/raven": "0.7.1",
         "yiisoft/yii": ">=1.1.14"
     }
 }
