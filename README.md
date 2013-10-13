@@ -28,7 +28,7 @@ The easiest way to install this extension is to use [Composer](http://getcompose
 
 ```js
   "require": {
-    "crisu83/yii-sentry": "1.0.0"
+    "crisu83/yii-sentry": "<replace-with-latest-version>"
   }
 ```
 
