@@ -35,11 +35,6 @@ class SentryClient extends CApplicationComponent
     public $dns;
 
     /**
-     * @var int Sentry project id (defaults to 1).
-     */
-    public $projectId = 1;
-
-    /**
      * @var string name of the active environment.
      */
     public $environment = 'dev';
@@ -52,10 +47,6 @@ class SentryClient extends CApplicationComponent
     /**
      * @var array options to pass to the Raven client with the following structure:
      *   logger: (string) name of the logger
-     *   servers: (array) server white list
-     *   secret_key: (string) API secret key
-     *   public_key: (string) API public key
-     *   project: (int) Sentry project id
      *   auto_log_stacks: (bool) whether to automatically log stacktraces
      *   name: (string) name of the server
      *   site: (string) name of the installation
@@ -256,7 +247,6 @@ class SentryClient extends CApplicationComponent
         $options = CMap::mergeArray(
             array(
                 'logger' => 'yii',
-                'project' => $this->projectId,
                 'tags' => array(
                     'environment' => $this->environment,
                     'php_version' => phpversion(),
