@@ -56,7 +56,6 @@ Once you have downloaded the extension add the following to your application con
 The following configuration parameters are available for the SentryClient:
 
 * **dns**: (string) dns to use when connecting to Sentry
-* **projectId**: (int) Sentry project id (defaults to 1)
 * **environment**: (string) name of the active environment
 * **enabledEnvironments**: (array) list of names for environments in which data will be sent to Sentry
 * **options**: (array) options to pass to the Raven client with the following structure:
