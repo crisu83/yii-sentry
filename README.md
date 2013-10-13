@@ -61,10 +61,6 @@ The following configuration parameters are available for the SentryClient:
 * **enabledEnvironments**: (array) list of names for environments in which data will be sent to Sentry
 * **options**: (array) options to pass to the Raven client with the following structure:
   * **logger**: (string) name of the logger
-  * **servers**: (array) server white list
-  * **secret_key**: (string) API secret key
-  * **public_key**: (string) API public key
-  * **project**: (int) Sentry project id
   * **auto_log_stacks**: (bool) whether to automatically log stacktraces
   * **name**: (string) name of the server
   * **site**: (string) name of the installation
