@@ -66,12 +66,15 @@ class SentryClient extends CApplicationComponent
 
     /**
      * @var array the dependencies (name => path).
-     * Change these to the correct ones if you are not using Composer.
      */
     public $dependencies = array(
-        'yii-extension' => 'vendor.crisu83.yii-extension',
         'raven' => 'vendor.raven.raven',
     );
+
+    /**
+     * @var string path to the yii-extension library.
+     */
+    public $yiiExtensionPath = 'vendor.crisu83.yii-extension';
 
     /** @var Raven_Client */
     private $_client;
@@ -92,10 +95,10 @@ class SentryClient extends CApplicationComponent
      */
     protected function initDependencies()
     {
-        if (!isset($this->dependencies['yii-extension'])) {
-            throw new CException('SentryClient dependency "yii-extension" not found.');
+        if (($alias = Yii::getPathOfAlias($this->yiiExtensionPath)) !== false) {
+            $this->yiiExtensionPath = $alias;
         }
-        Yii::import($this->dependencies['yii-extension'] . '.behaviors.*');
+        require($this->yiiExtensionPath . '/behaviors/ComponentBehavior.php');
         $this->attachBehavior('ext', new ComponentBehavior);
         $this->registerDependencies($this->dependencies);
         $ravenPath = $this->resolveDependencyPath('raven');
