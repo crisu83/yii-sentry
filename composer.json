@@ -12,10 +12,14 @@
         }
     ],
     "require": {
-        "raven/raven": "0.7.1",
-        "crisu83/yii-extension": "1.1.1"
+        "raven/raven": "0.8.*"
     },
     "require-dev": {
         "yiisoft/yii": ">=1.1.14"
+    },
+    "autoload": {
+        "classmap": [
+            "components/"
+        ]
     }
 }
