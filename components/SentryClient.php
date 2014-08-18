@@ -64,6 +64,27 @@ class SentryClient extends CApplicationComponent
      */
     public $extraVariables = array();
 
+    /**
+     * Holds all event ids that were reported during this request
+     */
+    protected $_loggedEventIds = array();
+
+    /**
+     * @param mixed $loggedEventIds
+     */
+    public function setLoggedEventIds($loggedEventIds)
+    {
+        $this->_loggedEventIds = $loggedEventIds;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLoggedEventIds()
+    {
+        return $this->_loggedEventIds;
+    }
+
     /** @var Raven_Client */
     private $_client;
 
@@ -105,6 +126,7 @@ class SentryClient extends CApplicationComponent
                 throw new CException('SentryClient failed to log exception.', (int)$e->getCode());
             }
         }
+        $this->_loggedEventIds[] = $eventId;
         $this->log(sprintf('Exception logged to Sentry with event id: %d', $eventId), CLogger::LEVEL_INFO);
         return $eventId;
     }
@@ -145,6 +167,7 @@ class SentryClient extends CApplicationComponent
                 throw new CException('SentryClient failed to log message.', (int)$e->getCode());
             }
         }
+        $this->_loggedEventIds[] = $eventId;
         $this->log(sprintf('Message logged to Sentry with event id: %d', $eventId), CLogger::LEVEL_INFO);
         return $eventId;
     }
@@ -174,6 +197,7 @@ class SentryClient extends CApplicationComponent
                 throw new CException('SentryClient failed to log query.', (int)$e->getCode());
             }
         }
+        $this->_loggedEventIds[] = $eventId;
         $this->log(sprintf('Query logged to Sentry with event id: %d', $eventId), CLogger::LEVEL_INFO);
         return $eventId;
     }
