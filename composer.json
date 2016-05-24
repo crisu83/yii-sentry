@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "raven/raven": ">=0.8.0"
+        "sentry/sentry": ">=0.8.0"
     },
     "require-dev": {
         "yiisoft/yii": ">=1.1.14"
